@@ -151,7 +151,7 @@ h3 { font-size: 21px !important; letter-spacing: -.03em; }
   right: 0;
   width: 59%;
   height: 100%;
-  background: url('./assets/ksenia-with-child-v3.webp?v=20260817-1') right 54% / auto 235% no-repeat;
+  background: url('./assets/ksenia-with-child.webp?v=20260817-1') right 52% / auto 205% no-repeat;
 }
 .hero::after {
   content: '';
@@ -831,7 +831,7 @@ h3 { font-size: 21px !important; letter-spacing: -.03em; }
   min-height: 690px !important;
   border: 0 !important;
   border-radius: 36px !important;
-  background: url('./assets/ksenia-with-child-v3.webp?v=20260817-1') right center / auto 100% no-repeat !important;
+  background: url('./assets/ksenia-with-child.webp?v=20260817-1') right center / auto 100% no-repeat !important;
   color: transparent !important;
   box-shadow: 0 28px 75px rgba(44,27,75,.18);
 }
