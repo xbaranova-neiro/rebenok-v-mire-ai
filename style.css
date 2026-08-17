@@ -151,7 +151,7 @@ h3 { font-size: 21px !important; letter-spacing: -.03em; }
   right: 0;
   width: 59%;
   height: 100%;
-  background: url('./assets/ksenia-with-child.png?v=20260817-2') right 48% / auto 185% no-repeat;
+  background: url('./assets/ksenia-with-child.png?v=20260817-2') right 48% / auto 210% no-repeat;
 }
 .hero::after {
   content: '';
