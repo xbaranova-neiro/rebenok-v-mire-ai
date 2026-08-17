@@ -831,7 +831,7 @@ h3 { font-size: 21px !important; letter-spacing: -.03em; }
   min-height: 690px !important;
   border: 0 !important;
   border-radius: 36px !important;
-  background: url('./assets/ksenia-with-child.webp?v=20260817-1') right center / auto 100% no-repeat !important;
+  background: url('./assets/ksenia-speaker-family.webp?v=20260817-1') center 42% / cover no-repeat !important;
   color: transparent !important;
   box-shadow: 0 28px 75px rgba(44,27,75,.18);
 }
@@ -1202,9 +1202,11 @@ body.popup-open { overflow: hidden; }
   .gift-card { position: relative; inset: auto; width: 100%; margin-top: 28px; transform: none; }
   .speaker { grid-template-columns: 1fr !important; }
   .speaker-photo {
-    min-height: 590px !important;
-    background-size: auto 112% !important;
-    background-position: right center !important;
+    width: min(100%, 720px);
+    min-height: 650px !important;
+    margin-inline: auto;
+    background-size: cover !important;
+    background-position: center 38% !important;
   }
   .footer-cta { grid-template-columns: 1fr !important; align-items: center !important; }
   .footer-event-card { max-width: 560px; }
@@ -1257,8 +1259,8 @@ body.popup-open { overflow: hidden; }
   #program .card::before { left: 24px; top: 24px; }
   .speaker-photo {
     min-height: 480px !important;
-    background-size: auto 145% !important;
-    background-position: right center !important;
+    background-size: cover !important;
+    background-position: center 38% !important;
   }
   .footer-cta .button {
     width: 100%;
