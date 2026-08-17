@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7f5fc" />
+  <title>Ребёнок в мире ИИ — бесплатный вебинар</title>
+  <meta name="description" content="Бесплатный вебинар для родителей детей и подростков. Как научить ребёнка пользоваться нейросетями так, чтобы они помогали думать, учиться и создавать." />
+  <style>
+    :root {
+      --bg: #f6f4fb;
+      --white: #ffffff;
+      --text: #17152a;
+      --muted: #66627a;
+      --line: #e6e2f2;
+      --violet: #6f5cff;
+      --violet-dark: #4334c7;
+      --violet-soft: #ece8ff;
+      --accent: #8f7cff;
+      --shadow: 0 18px 40px rgba(77, 54, 190, 0.10);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .section-sm {
+      padding: 60px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--violet-dark);
+      background: rgba(255,255,255,0.8);
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--violet);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(40px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      font-size: clamp(30px, 4vw, 52px);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 22px;
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+
+    .lead {
+      font-size: 20px;
+      color: var(--muted);
+      max-width: 760px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 58px;
+      padding: 16px 28px;
+      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 800;
+      transition: .2s ease;
+      text-decoration: none;
+    }
+
+    .button-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--violet), var(--violet-dark));
+      box-shadow: 0 12px 28px rgba(91, 68, 220, 0.25);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      background: var(--white);
+      border: 1px solid var(--line);
+      color: var(--text);
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 244, 251, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(230, 226, 242, 0.8);
+    }
+
+    .header-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 900;
+      font-size: 18px;
+      color: var(--violet-dark);
+    }
+
+    .nav {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 60px 0 40px;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(111,92,255,0.10), transparent 25%),
+        radial-gradient(circle at 90% 10%, rgba(111,92,255,0.08), transparent 22%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-title-small {
+      font-size: clamp(20px, 2vw, 28px);
+      line-height: 1.2;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .hero-sub {
+      max-width: 760px;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .gift-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .gift-label {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      color: var(--violet);
+      margin-bottom: 8px;
+    }
+
+    .gift-title {
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .gift-text {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .gift-cover {
+      border-radius: 18px;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f1ff 100%);
+      border: 1px solid var(--line);
+      min-height: 170px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.4);
+    }
+
+    .gift-cover .num {
+      color: var(--violet);
+      font-weight: 900;
+      font-size: 42px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .gift-cover .mini {
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .trust-item {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .trust-item strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 16px;
+    }
+
+    .cards-2,
+    .cards-3 {
+      display: grid;
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .cards-2 { grid-template-columns: repeat(2, 1fr); }
+    .cards-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .problem {
+      text-align: center;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .problem-lines {
+      margin: 36px auto 24px;
+      display: grid;
+      gap: 18px;
+      max-width: 760px;
+    }
+
+    .problem-line {
+      padding: 22px 24px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      font-size: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .good-news {
+      margin-top: 32px;
+      padding-top: 26px;
+      border-top: 1px solid var(--line);
+    }
+
+    .good-news-label {
+      color: var(--violet);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .bullet-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .bullet {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .bullet strong {
+      display: block;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .speaker {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 34px;
+      align-items: start;
+    }
+
+    .speaker-photo {
+      min-height: 380px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, #f5f2ff 0%, #ffffff 100%);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--violet-dark);
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      padding: 24px;
+    }
+
+    .speaker-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .speaker-stat {
+      background: var(--violet-soft);
+      border-radius: 18px;
+      padding: 18px;
+      text-align: center;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .speaker-stat strong {
+      display: block;
+      font-size: 22px;
+      color: var(--violet-dark);
+      margin-bottom: 6px;
+    }
+
+    .quote-section {
+      text-align: center;
+      background: linear-gradient(180deg, #faf8ff 0%, #f3efff 100%);
+    }
+
+    .quote {
+      max-width: 980px;
+      margin: 0 auto;
+      font-size: clamp(28px, 4vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 800;
+    }
+
+    .quote-sub {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .footer-cta {
+      background: var(--white);
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .footer-cta h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .legal {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .speaker,
+      .footer-cta {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-3 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .speaker-photo {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav { display: none; }
+
+      .trust,
+      .cards-2,
+      .cards-3,
+      .bullet-grid,
+      .speaker-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .gift-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .problem-line {
+        font-size: 17px;
+      }
+
+      .footer-cta {
+        padding: 24px;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">Школа нейросетей и SMM</div>
+      <nav class="nav">
+        <a href="#about">О вебинаре</a>
+        <a href="#program">Программа</a>
+        <a href="#speaker">Спикер</a>
+        <a href="#register">Регистрация</a>
+      </nav>
+      <a href="#register" class="button button-primary">Зарегистрироваться</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Бесплатный вебинар для родителей детей и подростков · 20 августа · 19:00 МСК</div>
+        <h1>Ребёнок в мире ИИ</h1>
+        <div class="hero-title-small">
+          Ваш ребёнок уже пользуется нейросетями? Вопрос — будут ли они помогать ему думать или начнут думать вместо него?
+        </div>
+        <p class="hero-sub">
+          Покажем, как научить ребёнка использовать ИИ для учёбы, творчества и собственных цифровых проектов — не для копирования готовых ответов, а чтобы разбираться, придумывать, проверять и создавать самому.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#register" class="button button-primary">Зарегистрироваться бесплатно</a>
+          <a href="#program" class="button button-secondary">Программа</a>
+        </div>
+
+        <div class="trust">
+          <div class="trust-item">
+            <strong>20 августа</strong>
+            19:00 МСК
+          </div>
+          <div class="trust-item">
+            <strong>Подарок за регистрацию</strong>
+            Практический материал для родителей
+          </div>
+          <div class="trust-item">
+            <strong>400 000+</strong>
+            учеников прошли программы школы по ИИ
+          </div>
+        </div>
+      </div>
+
+      <div class="gift-card">
+        <div>
+          <div class="gift-label">ПОДАРОК ЗА РЕГИСТРАЦИЮ</div>
+          <div class="gift-title">
+            7 правил использования нейросетей детьми, которые помогут развивать мышление, а не позволят ИИ заменить его
+          </div>
+          <p class="gift-text">
+            Практический материал для родителей о безопасной работе с ИИ, ошибках нейросетей, списывании, личных данных и привычках, которые помогают ребёнку оставаться автором собственной работы.
+          </p>
+        </div>
+
+        <div class="gift-book-wrap" aria-label="Обложка подарочного материала">
+          <div class="gift-cover">
+            <div class="gift-cover-kicker">ГАЙД ДЛЯ РОДИТЕЛЕЙ</div>
+            <div class="num">7</div>
+            <div class="mini">правил</div>
+            <div class="gift-cover-note">РЕБЁНОК × ИИ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container problem">
+      <div class="pain-heading">
+        <div class="pain-heading-copy">
+          <div class="eyebrow">ЗНАКОМО?</div>
+          <h2>Бывало такое?</h2>
+        </div>
+
+        <div class="pain-stat">
+          <strong>6,5</strong>
+          <span>часа в день подростки в среднем проводят в интернете</span>
+        </div>
+      </div>
+
+      <div class="pain-board">
+        <article class="pain-card pain-card-dialogue">
+          <span class="pain-tag">УЧЁБА</span>
+          <p>«Уроки сделал?»</p>
+          <strong>«Потом»</strong>
+        </article>
+
+        <article class="pain-card pain-card-dialogue">
+          <span class="pain-tag">ИНТЕРЕС</span>
+          <p>«Может, запишемся на кружок?»</p>
+          <strong>«Не хочу»</strong>
+        </article>
+
+        <article class="pain-card pain-card-dialogue">
+          <span class="pain-tag">БУДУЩЕЕ</span>
+          <p>«Что тебе вообще интересно?»</p>
+          <strong>«Не знаю»</strong>
+        </article>
+
+        <article class="pain-card pain-card-wide">
+          <span class="pain-tag">ЭКРАННОЕ ВРЕМЯ</span>
+          <strong>Часы проходят — а показать нечего</strong>
+          <p>Ролики, игры и лента не превращаются ни в навык, ни в собственный результат.</p>
+        </article>
+
+        <article class="pain-card pain-card-accent">
+          <span class="pain-tag">НЕЙРОСЕТИ</span>
+          <strong>«Реши за меня», «напиши за меня», «сделай за меня»</strong>
+          <p>ИИ вроде бы помогает, но ребёнок всё меньше разбирается и думает самостоятельно.</p>
+        </article>
+      </div>
+
+      <div class="pain-response">
+        <span>И ПРИ ЭТОМ</span>
+        <p>А телефон, игры и ролики почему-то не надоедают. И теперь внутри этой цифровой среды появились нейросети.</p>
+      </div>
+
+      <div class="pain-question">
+        <span>ГЛАВНАЯ ТРЕВОГА РОДИТЕЛЯ</span>
+        <p>Нейросеть помогает ребёнку думать — или незаметно начинает думать вместо него?</p>
+      </div>
+
+      <div class="good-news">
+        <div class="good-news-label">ХОРОШАЯ НОВОСТЬ</div>
+        <p class="lead" style="margin: 0 auto;">
+          Нейросети могут не заменять мышление ребёнка, а усиливать его. Именно эту модель мы покажем на вебинаре 20 августа.
+        </p>
+
+        <div class="section-cta section-cta-in-card">
+          <a href="#register" class="button button-primary">Зарегистрироваться бесплатно</a>
+        </div>
+
+        <div class="bullet-grid">
+          <div class="bullet">
+            <strong>Разобраться в теме</strong>
+            Использовать ИИ как помощника, который объясняет и задаёт вопросы, а не просто выдаёт готовый ответ.
+          </div>
+          <div class="bullet">
+            <strong>Проверить свою работу</strong>
+            Находить слабые места, ошибки и точки для улучшения вместо слепого копирования.
+          </div>
+          <div class="bullet">
+            <strong>Развить идею</strong>
+            Получать варианты, сравнивать их и собирать собственное решение.
+          </div>
+          <div class="bullet">
+            <strong>Создать что-то своё</strong>
+            Превращать экранное время в проект, навык и результат, который можно показать.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="eyebrow">КОМУ ПОДОЙДЁТ</div>
+      <h2>Приходите, если хотите…</h2>
+
+      <div class="cards-3">
+        <div class="card">
+          <h3>Чтобы нейросети помогали ребёнку учиться, а не списывать</h3>
+          <p class="muted">Покажем разницу между запросом «реши за меня» и работой с ИИ как с персональным репетитором.</p>
+          <img class="card-image" src="./assets/card-ai-tutor.png" alt="Школьник занимается с нейросетью как с персональным репетитором" width="1536" height="1024" loading="lazy" />
+        </div>
+        <div class="card">
+          <h3>Чтобы ребёнок не верил каждому ответу ИИ</h3>
+          <p class="muted">Разберём, почему нейросети могут уверенно ошибаться и как формировать привычку проверять факты.</p>
+          <img class="card-image" src="./assets/card-fact-check.png" alt="Мама и дочь вместе проверяют информацию из ответа нейросети" width="1448" height="1086" loading="lazy" />
+        </div>
+        <div class="card">
+          <h3>Чтобы телефон и компьютер были не только развлечениями</h3>
+          <p class="muted">Покажем, как цифровая среда может стать местом для создания собственных проектов.</p>
+          <img class="card-image" src="./assets/card-digital-creative.png" alt="Девочка создаёт собственный цифровой проект" width="1448" height="1086" loading="lazy" />
+        </div>
+        <div class="card">
+          <h3>Чтобы ребёнок попробовал разные современные направления</h3>
+          <p class="muted">Учёба, изображения, комиксы, видео, сайты, игры, приложения — без необходимости сразу выбирать профессию.</p>
+          <img class="card-image" src="./assets/card-explore-directions.png" alt="Девочка пробует разные направления цифрового творчества" width="1536" height="1024" loading="lazy" />
+        </div>
+        <div class="card">
+          <h3>Чтобы понимать, чему ребёнок реально учится</h3>
+          <p class="muted">За красивым результатом скрываются конкретные навыки: логика, выбор, проверка, доработка, проектное мышление.</p>
+          <img class="card-image" src="./assets/card-learning-process.png" alt="Сын показывает отцу этапы работы над своим проектом" width="1536" height="1024" loading="lazy" />
+        </div>
+        <div class="card">
+          <h3>Чтобы говорить о нейросетях без страшилок и запретов</h3>
+          <p class="muted">Поймёте, какие правила действительно нужны и где заканчивается помощь ИИ и начинается подмена работы ребёнка.</p>
+          <img class="card-image" src="./assets/card-parent-conversation.png" alt="Мама спокойно обсуждает с дочерью правила работы с нейросетями" width="1536" height="1024" loading="lazy" />
+        </div>
+      </div>
+
+      <div class="section-cta section-cta-violet">
+        <a href="#register" class="button button-primary">Зарегистрироваться бесплатно</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="program">
+    <div class="container">
+      <div class="eyebrow">ПРОГРАММА</div>
+      <h2>Что разберём на вебинаре</h2>
+
+      <div class="cards-2">
+        <div class="card">
+          <h3>1. ИИ помогает думать или думает вместо ребёнка</h3>
+          <p class="muted">Покажем две модели использования нейросетей и признаки, по которым родитель понимает, какая формируется у ребёнка.</p>
+        </div>
+
+        <div class="card">
+          <h3>2. Как превратить нейросеть в персонального репетитора</h3>
+          <p class="muted">На конкретном примере покажем, как ИИ может объяснять сложную тему, задавать вопросы и помогать найти ошибку.</p>
+        </div>
+
+        <div class="card">
+          <h3>3. Как делать школьные проекты без копипаста</h3>
+          <p class="muted">От выбора темы и структуры до проверки источников, презентации и собственных выводов.</p>
+        </div>
+
+        <div class="card">
+          <h3>4. Как превратить цифровой интерес ребёнка в творчество</h3>
+          <p class="muted">Персонажи, комиксы, изображения, анимация, видео — не только красивый результат, но и самостоятельные решения.</p>
+        </div>
+
+        <div class="card">
+          <h3>5. Как ребёнок может создавать сайты, игры и приложения</h3>
+          <p class="muted">Покажем, как современные ИИ-инструменты помогают перейти от пользователя к создателю цифрового продукта.</p>
+        </div>
+
+        <div class="card">
+          <h3>6. Какие навыки стоят за каждым проектом</h3>
+          <p class="muted">Критическое мышление, логика, постановка задачи, проверка, работа с ошибками и умение доводить идею до результата.</p>
+        </div>
+      </div>
+
+      <div class="section-cta">
+        <a href="#register" class="button button-primary">Зарегистрироваться бесплатно</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm" id="speaker">
+    <div class="container speaker">
+      <div class="speaker-photo">
+        Фото Ксении Барановой
+      </div>
+
+      <div>
+        <div class="eyebrow">СПИКЕР ВЕБИНАРА</div>
+        <h2>Ксения Баранова</h2>
+        <p class="lead" style="font-size:18px;">
+          Основатель одной из крупнейших школ по нейросетям в СНГ. Победитель премии GETAWARD 2026 в номинации «Обучение года».
+        </p>
+
+        <div class="cards-2" style="margin-top: 24px;">
+          <div class="card">
+            <h3>Экспертность</h3>
+            <p class="muted">
+              Более 400 000 учеников прошли обучающие программы по ИИ. Приглашённый эксперт по ИИ на заседании в Государственной Думе РФ.
+            </p>
+          </div>
+          <div class="card">
+            <h3>О чём будет вебинар</h3>
+            <p class="muted">
+              Не о том, как дать ребёнку ещё больше технологий, а о том, как сделать так, чтобы технологии помогали ему развиваться, оставаться самостоятельным и создавать свои результаты.
+            </p>
+          </div>
+        </div>
+
+        <div class="speaker-stats">
+          <div class="speaker-stat">
+            <strong>400 000+</strong>
+            учеников
+          </div>
+          <div class="speaker-stat">
+            <strong>GETAWARD</strong>
+            победитель 2026
+          </div>
+          <div class="speaker-stat">
+            <strong>Эксперт</strong>
+            по нейросетям
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section value-section">
+    <div class="container">
+      <div class="eyebrow">ДВОЙНАЯ ЦЕННОСТЬ</div>
+      <h2>Ребёнку интересно. Родителю понятно, зачем.</h2>
+      <p class="lead">
+        На вебинаре каждый пример покажем в двух слоях: что видит ребёнок и какой навык стоит за этим для родителя.
+      </p>
+
+      <div class="project-gallery">
+        <figure class="project-shot">
+          <img src="./assets/project-ai-presentation.png" alt="Пример проекта с AI-репетитором и собственной презентацией" width="1536" height="1024" loading="lazy" />
+          <figcaption><span>01</span> AI-репетитор и презентация</figcaption>
+        </figure>
+        <figure class="project-shot">
+          <img src="./assets/project-comic.png" alt="Пример авторского комикса и разработки персонажа" width="1536" height="1024" loading="lazy" />
+          <figcaption><span>02</span> Авторский комикс и герой</figcaption>
+        </figure>
+        <figure class="project-shot">
+          <img src="./assets/project-game-app.png" alt="Пример мини-игры и полезного приложения" width="1536" height="1024" loading="lazy" />
+          <figcaption><span>03</span> Мини-игра и приложение</figcaption>
+        </figure>
+      </div>
+
+      <div class="cards-2">
+        <div class="card value-card">
+          <h3>Персональный AI-репетитор</h3>
+          <p><strong>Ребёнок видит:</strong> можно наконец понять тему нормальным языком.</p>
+          <p class="muted"><strong style="color:var(--text)">Родитель видит:</strong> ребёнок учится разбираться, задавать вопросы и исправлять ошибки.</p>
+        </div>
+
+        <div class="card value-card">
+          <h3>Собственная презентация</h3>
+          <p><strong>Ребёнок видит:</strong> красивую работу, которую не стыдно показать.</p>
+          <p class="muted"><strong style="color:var(--text)">Родитель видит:</strong> структуру, выбор главного, объяснение мыслей другим.</p>
+        </div>
+
+        <div class="card value-card">
+          <h3>Герой, комикс или своя вселенная</h3>
+          <p><strong>Ребёнок видит:</strong> своего персонажа и мир.</p>
+          <p class="muted"><strong style="color:var(--text)">Родитель видит:</strong> работу с идеей, характером, конфликтом и последовательностью.</p>
+        </div>
+
+        <div class="card value-card">
+          <h3>Мини-игра</h3>
+          <p><strong>Ребёнок видит:</strong> игру, в которую можно играть.</p>
+          <p class="muted"><strong style="color:var(--text)">Родитель видит:</strong> логику, правила, тестирование и исправление ошибок.</p>
+        </div>
+
+        <div class="card value-card">
+          <h3>Полезное приложение</h3>
+          <p><strong>Ребёнок видит:</strong> настоящее приложение под свою идею.</p>
+          <p class="muted"><strong style="color:var(--text)">Родитель видит:</strong> постановку задачи, прототипирование и улучшение результата.</p>
+        </div>
+
+        <div class="card value-card value-card-final">
+          <h3>Главный вывод</h3>
+          <p class="muted">
+            Нейросеть создаёт черновики и ускоряет действия. Но идея, выбор, проверка и итоговое решение остаются за ребёнком.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-cta section-cta-violet">
+        <a href="#register" class="button button-primary">Зарегистрироваться бесплатно</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section quote-section">
+    <div class="container">
+      <div class="quote">
+        «Не нужно вытаскивать ребёнка из цифрового мира. Нужно научить его быть там не только потребителем, но и автором».
+      </div>
+      <div class="quote-sub">Главная идея вебинара</div>
+    </div>
+  </section>
+
+  <section class="section" id="register">
+    <div class="container">
+      <div class="footer-cta">
+        <div>
+          <div class="eyebrow">ЗАНЯТЬ МЕСТО НА ЭФИРЕ</div>
+          <h3>Бесплатный вебинар «Ребёнок в мире ИИ»</h3>
+          <p class="muted" style="max-width: 760px;">
+            Как научить ребёнка использовать нейросети для учёбы, творчества и собственных цифровых проектов так, чтобы ИИ помогал ему думать, а не думал вместо него.
+          </p>
+
+        </div>
+
+        <div class="footer-cta-side">
+          <div class="footer-cta-facts">
+            <div class="footer-cta-date">
+              <strong>20</strong>
+              <span>августа<br><small>19:00 МСК</small></span>
+            </div>
+            <div class="footer-cta-gift">
+              <span>✦</span>
+              <p><strong>Бесплатное участие</strong><br>и практический подарок</p>
+            </div>
+          </div>
+
+          <div class="footer-register-action">
+            <button type="button" class="button button-primary js-open-register">Зарегистрироваться бесплатно</button>
+          </div>
+        </div>
+      </div>
+
+      <footer class="site-footer">
+        <div class="site-footer-main">
+          <div class="site-footer-brand">
+            <div class="footer-logo"><span>✦</span> Школа нейросетей и SMM</div>
+            <p>Помогаем детям осваивать нейросети осознанно: думать, создавать и превращать идеи в собственные проекты.</p>
+          </div>
+
+          <nav class="site-footer-nav" aria-label="Навигация в подвале">
+            <strong>Навигация</strong>
+            <a href="#about">О вебинаре</a>
+            <a href="#program">Программа</a>
+            <a href="#speaker">Спикер</a>
+            <a href="#register">Регистрация</a>
+          </nav>
+
+          <div class="site-footer-next">
+            <span>20 августа · 19:00 МСК</span>
+            <a href="#register">Занять место →</a>
+          </div>
+        </div>
+
+        <div class="legal">
+          <span>© 2026 Ксения Баранова</span>
+          <div>
+            <a href="#">Политика обработки данных</a>
+            <a href="#">Публичная оферта</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </section>
+
+  <div class="register-popup" id="registration-popup" role="dialog" aria-modal="true" aria-label="Регистрация на вебинар" aria-hidden="true">
+    <div class="register-popup-inner">
+      <button type="button" class="register-popup-close" aria-label="Закрыть форму">×</button>
+      <div class="registration-widget">
+        <script id="c501f81413fd16c7d107ccf3a2c02b68e9c2889c" src="https://xeniabaranova-school.ru/pl/lite/widget/script?id=1643700"></script>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const popup = document.getElementById('registration-popup');
+      const closeButton = popup.querySelector('.register-popup-close');
+      const triggers = document.querySelectorAll('a[href="#register"], .js-open-register');
+      let previousFocus = null;
+
+      const openPopup = (event) => {
+        if (event) event.preventDefault();
+        previousFocus = document.activeElement;
+        popup.classList.add('is-open');
+        popup.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('popup-open');
+        closeButton.focus();
+      };
+
+      const closePopup = () => {
+        popup.classList.remove('is-open');
+        popup.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('popup-open');
+        if (previousFocus) previousFocus.focus();
+      };
+
+      triggers.forEach((trigger) => trigger.addEventListener('click', openPopup));
+      closeButton.addEventListener('click', closePopup);
+      popup.addEventListener('click', (event) => {
+        if (event.target === popup) closePopup();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+      });
+    })();
+  </script>
+
+</body>
+</html>
